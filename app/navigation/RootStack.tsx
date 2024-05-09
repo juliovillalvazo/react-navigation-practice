@@ -1,13 +1,11 @@
-import {
-    NativeStackNavigationProp,
-    createNativeStackNavigator,
-} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeScreen } from '../screens/HomeScreen';
 import { FeedScreen } from '../screens/FeedScreen';
 import { Profile } from '../screens/Profile';
 import { Details } from '../screens/Details';
-import { useLayoutEffect } from 'react';
 import DrawerNavigation from './DrawerNavigator';
+import Modal from '../screens/Modal';
+import { createStackNavigator } from '@react-navigation/stack';
 
 export type RootStackParamList = {
     home: undefined;
@@ -15,6 +13,7 @@ export type RootStackParamList = {
     profile: undefined;
     details: { id: number };
     drawer: undefined;
+    modal: undefined;
 };
 
 export const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -49,6 +48,14 @@ const RootStackNavigator = () => {
             <RootStack.Screen name='profile' component={Profile} />
             <RootStack.Screen name='details' component={Details} />
             <RootStack.Screen name='drawer' component={DrawerNavigation} />
+            <RootStack.Screen
+                name='modal'
+                component={Modal}
+                options={{
+                    animation: 'slide_from_bottom',
+                    presentation: 'fullScreenModal',
+                }}
+            />
         </RootStack.Navigator>
     );
 };

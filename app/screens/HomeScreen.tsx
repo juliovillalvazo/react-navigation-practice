@@ -24,6 +24,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
                 title='Go to Home with Drawer'
                 onPress={() => navigation.navigate('drawer')}
             />
+            <Button
+                title='Open Modal'
+                onPress={() => navigation.navigate('modal')}
+            />
         </View>
     );
 };
