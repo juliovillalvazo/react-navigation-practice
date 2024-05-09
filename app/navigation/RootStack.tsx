@@ -6,6 +6,7 @@ import { HomeScreen } from '../screens/HomeScreen';
 import { FeedScreen } from '../screens/FeedScreen';
 import { Profile } from '../screens/Profile';
 import { Details } from '../screens/Details';
+import { useLayoutEffect } from 'react';
 
 export type RootStackParamList = {
     home: undefined;
@@ -27,8 +28,21 @@ declare global {
 
 const RootStackNavigator = () => {
     return (
-        <RootStack.Navigator>
-            <RootStack.Screen name='home' component={HomeScreen} />
+        <RootStack.Navigator
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: '#1C357F',
+                },
+                headerTintColor: '#fff',
+            }}
+        >
+            <RootStack.Screen
+                name='home'
+                component={HomeScreen}
+                options={{
+                    title: 'Home',
+                }}
+            />
             <RootStack.Screen name='feed' component={FeedScreen} />
             <RootStack.Screen name='profile' component={Profile} />
             <RootStack.Screen name='details' component={Details} />
