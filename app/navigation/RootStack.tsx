@@ -7,12 +7,14 @@ import { FeedScreen } from '../screens/FeedScreen';
 import { Profile } from '../screens/Profile';
 import { Details } from '../screens/Details';
 import { useLayoutEffect } from 'react';
+import DrawerNavigation from './DrawerNavigator';
 
 export type RootStackParamList = {
     home: undefined;
     feed: undefined;
     profile: undefined;
     details: { id: number };
+    drawer: undefined;
 };
 
 export const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -46,6 +48,7 @@ const RootStackNavigator = () => {
             <RootStack.Screen name='feed' component={FeedScreen} />
             <RootStack.Screen name='profile' component={Profile} />
             <RootStack.Screen name='details' component={Details} />
+            <RootStack.Screen name='drawer' component={DrawerNavigation} />
         </RootStack.Navigator>
     );
 };

@@ -20,6 +20,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
                 title='Open Profile'
                 onPress={() => navigation.push('profile')}
             />
+            <Button
+                title='Go to Home with Drawer'
+                onPress={() => navigation.navigate('drawer')}
+            />
         </View>
     );
 };
